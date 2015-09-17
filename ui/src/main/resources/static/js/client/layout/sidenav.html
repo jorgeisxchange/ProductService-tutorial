@@ -1,0 +1,22 @@
+<div ng-controller="Sidenav as vModel" layout="row">
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')"><!-- md-is-locked-open="$mdMedia('gt-md')">  --> 
+	<md-toolbar class="md-tall md-hue-2">
+		<span flex></span>
+		<div layout="column" class="md-toolbar-tools-bottom inset">
+		<span></span>
+		<div><h2 class="md-title">Navigation</h2></div>
+		</div>
+	</md-toolbar>
+	<md-list>
+<!-- 		<md-list-item ng-repeat="item in menu" ng-click="go(item.uisref, item.title)">
+			<ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+			<p> {{ item.title }} </p>
+		</md-list-item>	   -->    
+		<md-list-item ng-repeat="r in vModel.sidenavRoutes" ng-click="vModel.go(r.originalPath)">
+			<ng-md-icon icon="{{r.settings.icon}}"></ng-md-icon>
+			<p> {{ r.settings.title}} </p>
+		</md-list-item>	  
+<!-- 		 <a href="#{{r.originalPath}}" ng-bind-html="r.settings.content"></a> -->
+	</md-list>
+</md-sidenav>
+</div>

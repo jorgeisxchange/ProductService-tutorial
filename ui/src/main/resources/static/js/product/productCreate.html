@@ -1,0 +1,45 @@
+<md-card> 
+	<md-card-content>
+	<h2 class="md-title">Product Form</h2>
+	<form name="productForm" role="form" ng-submit="addProduct()">
+		<md-input-container> <label>Product Name</label> <input
+			name="name" id="name" ng-model="newproduct.name" required
+			md-maxlength="30" minlength="4">
+		<div ng-messages="productForm.name.$error"
+			ng-show="productForm.name.$dirty">
+			<div ng-message="required">Product Name is required.</div>
+			<!-- 										      <div ng-message="md-maxlength">Maximum length is 30.</div>
+											      <div ng-message="minlength">Minimum length is 4.</div> -->
+		</div>
+		</md-input-container>
+		<md-input-container> <label>Short
+			Description</label> <input name="shortDscp" id="shortDscp"
+			ng-model="newproduct.shortDscp" md-maxlength="60">
+		<div ng-messages="productForm.name.$error"
+			ng-show="productForm.name.$dirty">
+			<!-- 										      <div ng-message="md-maxlength">Maximum length is 60.</div> -->
+		</div>
+		</md-input-container>
+		<md-input-container> <label>Long
+			Description</label> <textarea name="longDscp" id="longDscp"
+			ng-model="newproduct.longDscp" required md-maxlength="150"></textarea>
+		<div ng-messages="productForm.longDscp.$error"
+			ng-show="productForm.longDscp.$dirty">
+			<!-- 										      <div ng-message="md-maxlength">Maximum length is 150.</div> -->
+		</div>
+		</md-input-container>
+		<md-input-container> <label>Inventory Id</label> <input
+			name="inventoryId" id="inventoryId" ng-model="newproduct.inventoryId"
+			required md-maxlength="10" minlength="10">
+		<div ng-messages="productForm.name.$error"
+			ng-show="productForm.name.$dirty">
+			<div ng-message="required">Inventory Id is required.</div>
+			<!-- 										      <div ng-message="md-maxlength">Maximum length is 10.</div>
+											      <div ng-message="minlength">Minimum length is 10.</div> -->
+		</div>
+		</md-input-container>
+	
+		<md-button type="submit" class="md-raised" layout-align="right">Submit</md-button>
+	</form>
+	</md-card-content> 
+</md-card>

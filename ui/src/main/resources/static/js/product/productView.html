@@ -1,0 +1,12 @@
+<md-card ng-model="viewproduct"> 
+	<!-- <img src="card-image.png" class="md-card-image" alt="image caption"> -->
+	<md-card-content>
+		<h2 class="md-title">{{ viewproduct.name }}</h2>
+		<p class="md-caption">{{ viewproduct.shortDscp }}</p>
+		<md-divider></md-divider>
+		<p>{{ viewproduct.longDscp }}</p>
+	</md-card-content> 
+	<md-card-footer>
+		<p>{{ viewproduct.inventoryId }}</p>
+	</md-card-footer> 
+</md-card>

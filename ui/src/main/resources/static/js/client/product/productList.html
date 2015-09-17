@@ -1,0 +1,18 @@
+<div layout="column" layout-fill>
+	<h1>{{ vModel.title }}</h1>
+	<div ng-repeat="product in vModel.products">
+		<md-card> <!-- <img src="card-image.png" class="md-card-image" alt="image caption"> -->
+			<md-card-content>
+				<h2 class="md-title">{{ product.name }}</h2>
+				<p>{{ product.shortDscp }}</p>
+			</md-card-content> <md-card-footer> <md-button
+				class="md-raised md-primary"> <!-- ng-click="view(product)" -->View</md-button>
+			</md-card-footer> 
+		</md-card>
+	</div>
+	<br />
+	<div layout="row" layout-align="center center">
+		<md-progress-circular ng-show="loading" md-mode="indeterminate"></md-progress-circular>
+	</div>
+<!-- 	<div ui-view></div> -->
+</div>      
