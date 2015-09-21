@@ -1,5 +1,6 @@
 package product.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,15 +74,22 @@ public class ProductController {
     
     @RequestMapping(value = "/search/{name}", method = RequestMethod.GET)
     public List<Product> findByNameLike(@PathVariable String name) {
-    	List<Product> list = repository.findByNameLike(name);
+    	List<Product> list = new ArrayList<Product>();
     	
-    	if(list == null) {
+    	if(name == null || name == "") {
+    		list = repository.findAll();
+    	} else {
+    		list = repository.findByNameLike(name);
+    	}
+    	
+/*    	if(list == null) {
     		throw new ProductNotFoundException();
     	} else {
     		return list;
-    	}
+    	}*/
+    	return list;
     }
-	
+    
 	@RequestMapping(value="/", method=RequestMethod.POST)
 	public Product create(@RequestBody Product product) {
 		return repository.save(product);
@@ -92,18 +100,12 @@ public class ProductController {
 		
 	}
 	
-	
-/*	@RequestMapping(value="/create", method=RequestMethod.GET)
-	public Product create(@RequestBody Product product) {
-		return repository.save(product);
-	}	*/
-	
-	@RequestMapping(value="/products/add", method=RequestMethod.GET)
+/*	@RequestMapping(value="/products/add", method=RequestMethod.GET)
 	public Product create(@RequestParam(value="name", defaultValue="Test Product") String name, 
 							@RequestParam(value="shortDscp", defaultValue="Short Description") String shortDscp, 
 							@RequestParam(value="longDscp", defaultValue="Long Description") String longDscp, 
 							@RequestParam(value="inventoryId", defaultValue="Inventory ID") String inventoryId) {
 		return repository.save(new Product(name, shortDscp, longDscp, inventoryId));
-	}
+	}*/
 	
 }

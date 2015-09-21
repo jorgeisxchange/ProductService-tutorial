@@ -1,0 +1,39 @@
+authserver:
+ build: .
+ volumes:
+  - authserver:/code
+  - /home/jorgei/m2/spring-repository:/root/.m2
+ ports:
+  - "9999:9999"
+product:
+ build: .
+ volumes:
+  - product:/code
+  - /home/jorgei/m2/spring-repository:/root/.m2
+ ports:
+  - "8083:8083"
+ links:
+  - mongo
+  - authserver
+mongodata:
+ image: mongo:3.0.6
+ volumes:
+  - /data/db
+ command: --break-mongo
+mongo:
+ image: mongo:3.0.6
+ volumes_from:
+  - mongodata
+ ports:
+  - "27017:27017"
+ command: --smallfiles
+ui:
+ build: .
+ volumes:
+  - ui:/code
+  - /home/jorgei/m2/spring-repository:/root/.m2
+ ports:
+  - "8081:8081"
+ links:
+  - authserver
+  - product

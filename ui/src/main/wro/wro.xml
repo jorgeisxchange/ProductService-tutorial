@@ -11,6 +11,7 @@
     <js>webjar:angularjs/1.4.4/angular-route.min.js</js>
     <js>webjar:angularjs/1.4.4/angular-resource.min.js</js>
     <js>webjar:angularjs/1.4.4/angular-sanitize.min.js</js>
+    <js>webjar:angularjs/1.4.4/angular-messages.min.js</js>
     <js>webjar:angular-ui-router/0.2.15/angular-ui-router.min.js</js>
     <js>webjar:angular-material/0.10.1/angular-material.min.js</js>
     <js>webjar:angular-material-icons/0.5.0/angular-material-icons.min.js</js>

@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
 	
-	angular.module('app.product', []);
+	angular.module('app.product', ['ngMessages']);
 	
 })();

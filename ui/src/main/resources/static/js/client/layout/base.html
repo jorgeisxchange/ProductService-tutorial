@@ -1,13 +1,14 @@
-<md-content ng-controller="Base as vModel" layout="row" layout-fill>	
+<md-content ng-controller="Base as vModel" layout="row" layout-fill>
 	<ng-include src="'js/client/layout/sidenav.html'" layout="row"></ng-include>
 	<div layout="column" class="relative" layout-fill>
-		<ng-include src="'js/client/layout/toptoolbar.html'"></ng-include>
-		<md-content flex md-scroll-y>
-<!-- 			<div ui-view layout-padding>	
-				 CONTENT WILL BE INJECTED HERE
-			</div> -->
-			<div ng-view layout="column" layout-fill layout-padding></div>
-		</md-content>
+	<ng-include src="'js/client/layout/toptoolbar.html'"></ng-include>
+	<md-content flex md-scroll-y>
+	<!-- 			<div ui-view layout-padding>	
+					 CONTENT WILL BE INJECTED HERE
+				</div> -->
+		<div ng-view layout="column" layout-fill layout-padding></div>
+	</md-content>
 	</div>	
 </md-content>
+
 	

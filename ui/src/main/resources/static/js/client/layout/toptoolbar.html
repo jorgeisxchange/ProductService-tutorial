@@ -7,6 +7,15 @@
 		<h2>
 			<span>{{ vModel.title }}</span>
 <!-- 			<span ng-bind="toolbarTitle"></span> -->
-		</h2>		
+		</h2>
+		<span flex></span>
+		{{ vModel.isauth }}
+		<div ng-show="authenticated">
+			<a href="logout">Logout</a>
+		</div>
+		
+		<div ng-show="!authenticated">
+			<a href="login">Login</a>
+		</div>		
 	</div>
 </md-toolbar>

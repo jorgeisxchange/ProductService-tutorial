@@ -15,11 +15,14 @@
 		vModel.products = [];
 		vModel.productCount = 0;
 		vModel.title = 'Products';
-
+		
+		vModel.tosearch = '';
+		
 		vModel.findallproducts = findallproducts;
 		vModel.countallproducts = countallproducts;
-		vModel.newproduct = newproduct;
+		vModel.addproduct = addproduct;
 		vModel.deleteproduct = deleteproduct;
+		vModel.findbyname = findbyname;
 
 		init();
 		
@@ -30,6 +33,14 @@
 			return findallproducts();
 		}
 		
+		function findbyname() {
+			if(vModel.tosearch == null || vModel.tosearch == '') {
+				vModel.products = dataservice.findAllProducts();
+			} else {				
+				vModel.products = dataservice.findByName(vModel.tosearch);
+			}
+		}
+		
 		function findallproducts() {
 			vModel.products = dataservice.findAllProducts();
 		}
@@ -38,8 +49,8 @@
 			vModel.productCount = dataservice.countAllProducts();
 		}
 		
-		function newproduct(product) {
-			dataservice.saveOneProduct(product);
+		function addproduct() {
+			dataservice.saveOneProduct(vModel.newproduct);
 		}
 		
 		function deleteproduct(product) {

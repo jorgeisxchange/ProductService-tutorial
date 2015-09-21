@@ -16,17 +16,52 @@
 			}
 		});
 		
+		var data2 = $resource('/products/search/:name', {name: '@name'}, {
+			search: {
+				method: 'GET',
+				isArray : true,
+				params: {
+					action: "search",
+					name : '@name'
+				}
+			}
+		});
+		
 		var service = {
 				findAllProducts : findAllProducts,
 				findOneProduct : findOneProduct,
 				countAllProducts: countAllProducts,
 				saveOneProduct : saveOneProduct,
 				deleteOneProduct: deleteOneProduct,
+				findByName : findByName,
 				ready: ready
 		}
 		
 		return service;
 		
+		
+/*		function findByName(name) {
+			return data2
+						.query(name,
+								function(data) {
+									return data;
+								},
+								function(message){
+									exception.catcher('FindByName Failed.')(message);
+									$location.url('/');
+								});
+		}*/
+		
+		function findByName(iname) {
+			return data2
+						.search({name:iname}, function(data) {
+							return data;
+						},
+								function(message){
+									exception.catcher('FindByName Failed.')(message);
+									$location.url('/');
+								});
+		}
 		
 		function findAllProducts() {
 			

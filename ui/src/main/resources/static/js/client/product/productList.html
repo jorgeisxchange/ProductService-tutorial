@@ -1,5 +1,13 @@
 <div layout="column" layout-fill>
 	<h1>{{ vModel.title }}</h1>
+	<div layout="row">
+			<md-input-container> 
+				<label>Product Name</label>
+				<input name="tosearch.name" id="tosearch.name" ng-model="vModel.tosearch">
+			</md-input-container>
+			<span flex></span>
+			<md-button ng-click="vModel.findbyname()">Search</md-button>	
+	</div>
 	<div ng-repeat="product in vModel.products">
 		<md-card> <!-- <img src="card-image.png" class="md-card-image" alt="image caption"> -->
 			<md-card-content>

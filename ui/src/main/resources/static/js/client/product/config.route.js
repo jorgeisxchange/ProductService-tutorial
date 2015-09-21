@@ -27,6 +27,21 @@
 		        			icon: 'store'
 		        		}
 		        	}
+		        },
+		        {
+		        	url: '/newproduct',
+		        	config: {
+		        		templateUrl: 'js/client/product/productCreate.html',
+		        		controller: 'Product',
+		        		controllerAs: 'vModel',
+		        		title: 'New Product',
+		        		settings: {
+		        			nav: 3,
+		        			content: 'New Product',
+		        			title: 'New Product',
+		        			icon: 'add_circle'
+		        		}
+		        	}
 		        }
 		        
 		        ];

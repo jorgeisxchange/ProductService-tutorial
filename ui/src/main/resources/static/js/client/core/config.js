@@ -12,15 +12,19 @@
 	core.value('config', config);
 	core.config(configure);
 	
-	configure.$inject = ['$logProvider', '$routeProvider', '$mdThemingProvider', 'routehelperConfigProvider', 'exceptionHandlerProvider'];
+	configure.$inject = ['$httpProvider', '$locationProvider', '$logProvider', '$routeProvider', '$mdThemingProvider', 'routehelperConfigProvider', 'exceptionHandlerProvider'];
 	
 	
-	function configure($logProvider, $routeProvider, $mdThemingProvider, routehelperConfigProvider, exceptionHandlerProvider) {
+	function configure($httpProvider, $locationProvider, $logProvider, $routeProvider, $mdThemingProvider, routehelperConfigProvider, exceptionHandlerProvider) {
 		
 		if($logProvider.debugEnabled) {
 			$logProvider.debugEnabled(true);
 		}
 		
+		//$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+		
+		//$locationProvider.html5Mode(true);
+		//routehelperConfigProvider.config.$locationProvider = $locationProvider;
 		routehelperConfigProvider.config.$routeProvider = $routeProvider;
 		routehelperConfigProvider.config.docTitle = 'Product-App: ';
 		var resolveAlways = {

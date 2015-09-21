@@ -6,6 +6,7 @@
 			 'app.core',
 			 'app.home',
 			 'app.product',
+			 //'app.login',
 			 'app.layout'
 			 ]);
 })();

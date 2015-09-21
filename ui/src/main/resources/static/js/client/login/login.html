@@ -1,0 +1,31 @@
+<div layout="row" layout-align="center center">
+	<md-card flex="66">
+		<md-toolbar style="border-radius: 3px 3px 0px 0px;">
+			<div class="md-toolbar-tools">
+				<h2>{{ vModel.title }}</h2>
+			</div>
+		</md-toolbar>
+		<md-card-content>
+			<form name="loginForm" role="form" id="loginForm" action="login" method="post">
+				<md-input-container>
+					<label for="username">Username</label>
+					<input type="text" ng-model="user.username" required name="username" id="username"/>
+					<div ng-messages="loginForm.username.$error">
+			          <div ng-message="required">Username is required.</div>
+			        </div>
+				</md-input-container>
+				<md-input-container>
+					<label for="password">Password</label>
+					<input type="password" ng-model="user.password" required name="password" id="password"/>
+					<div ng-messages="loginForm.password.$error">
+			          <div ng-message="required">Password is required.</div>
+			        </div>
+				</md-input-container>
+				<br/><br/>
+				<div layout="column" flex>
+					<md-button type="submit" class="md-raised md-primary">Submit</md-button>
+				</div>
+			</form>
+		</md-card-content>
+	</md-card>
+</div>
