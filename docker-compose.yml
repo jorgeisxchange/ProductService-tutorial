@@ -1,15 +1,9 @@
 authserver:
- build: .
- volumes:
-  - authserver:/code
-  - /home/jorgei/m2/spring-repository:/root/.m2
+ image: sxi/authserver
  ports:
   - "9999:9999"
 product:
- build: .
- volumes:
-  - product:/code
-  - /home/jorgei/m2/spring-repository:/root/.m2
+ image: sxi/product
  ports:
   - "8083:8083"
  links:
@@ -28,10 +22,7 @@ mongo:
   - "27017:27017"
  command: --smallfiles
 ui:
- build: .
- volumes:
-  - ui:/code
-  - /home/jorgei/m2/spring-repository:/root/.m2
+ image: sxi/ui
  ports:
   - "8081:8081"
  links:

@@ -49,7 +49,7 @@ public class UiApplication {
 		@Override
 		public void configure(HttpSecurity http) throws Exception {
 			http
-					.logout()
+				.logout()
 			.and()
 				.antMatcher("/**").authorizeRequests()
 				.antMatchers("/index.html", "/", "/products").permitAll()
