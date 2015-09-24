@@ -48,16 +48,18 @@ public class UiApplication {
 
 		@Override
 		public void configure(HttpSecurity http) throws Exception {
+
 			http
 				.logout()
-			.and()
+			.and().httpBasic().disable()
 				.antMatcher("/**").authorizeRequests()
-				.antMatchers("/index.html", "/", "/products").permitAll()
-				.anyRequest().authenticated()
+				.antMatchers("/index.html", "/", "/login", "/login/**", "/products").permitAll()
+				.anyRequest().permitAll()
 			.and()
 				.csrf().csrfTokenRepository(csrfTokenRepository())
 			.and()
 				.addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
+
 		}
     	
 		private Filter csrfHeaderFilter() {

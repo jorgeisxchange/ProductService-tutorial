@@ -25,7 +25,8 @@
 		        			content: 'Products',
 		        			title: 'Products',
 		        			icon: 'store'
-		        		}
+		        		},
+		        		isauth: false
 		        	}
 		        },
 		        {
@@ -40,7 +41,8 @@
 		        			content: 'New Product',
 		        			title: 'New Product',
 		        			icon: 'add_circle'
-		        		}
+		        		},
+		        		isauth: true
 		        	}
 		        }
 		        

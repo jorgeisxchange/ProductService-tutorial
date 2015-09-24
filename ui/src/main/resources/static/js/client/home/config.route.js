@@ -25,7 +25,8 @@
 		        			content: 'Home',
 		        			title: 'Home',
 		        			icon: 'home'
-		        		}
+		        		},
+		        		isauth: false
 		        	}
 		        }
 		        ];

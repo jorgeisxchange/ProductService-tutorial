@@ -12,9 +12,9 @@
 			<ng-md-icon icon="{{item.icon}}"></ng-md-icon>
 			<p> {{ item.title }} </p>
 		</md-list-item>	   -->    
-		<md-list-item ng-repeat="r in vModel.sidenavRoutes" ng-click="vModel.go(r.originalPath)">
+		<md-list-item ng-repeat="r in vModel.sidenavRoutes" ng-click="vModel.go(r.originalPath)"  ng-show="vModel.toshow(r.isauth)" >
 			<ng-md-icon icon="{{r.settings.icon}}"></ng-md-icon>
-			<p> {{ r.settings.title}} </p>
+			<p> {{ r.settings.title}} </p>	
 		</md-list-item>	  
 <!-- 		 <a href="#{{r.originalPath}}" ng-bind-html="r.settings.content"></a> -->
 	</md-list>

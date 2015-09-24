@@ -30,16 +30,12 @@
 			<artifactId>spring-cloud-starter-oauth2</artifactId>
 		</dependency> -->
 		<dependency>
-			<groupId>org.springframework.security.oauth</groupId>
-			<artifactId>spring-security-oauth2</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-oauth2</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-security</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -83,7 +79,7 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
+<!--                 <configuration>
                     <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
                     <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
                     <resources>
@@ -93,7 +89,20 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
-                </configuration>
+                </configuration> -->
+                <configuration>
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+			        <baseImage>java</baseImage>
+			        <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+			        <!-- copy the service's jar file from target into the root directory of the image --> 
+			        <resources>
+			           <resource>
+			             <targetPath>/</targetPath>
+			             <directory>${project.build.directory}</directory>
+			             <include>${project.build.finalName}.jar</include>
+			           </resource>
+			        </resources>
+			     </configuration>
             </plugin>
 		</plugins>
 	</build>
